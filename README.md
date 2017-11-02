@@ -17,7 +17,7 @@ How to break the problem into subtasks and formalize them into data mining probl
 - Steps:
   * Crawl data with tweepy
   * Manually label the sentiment of tweets
-  * Word2vec
+  * Word2vec with labels of sentiments
   * Train with model
 
 5.  	Data preparation description and preprocessing
@@ -25,6 +25,7 @@ How to break the problem into subtasks and formalize them into data mining probl
 What’s your strategy in crawling Twitter data and describe what you plan to get 
 
 6.  	Methods description (detailed steps)
+- Also crawl the stock price and use it to train the related tweets for a certain time period
 
 7.  	Experiments design and Evaluation
 
