@@ -1,6 +1,8 @@
 # stock_prediction_NaN
 ### CS 145
 
+Midterm report shall be found here: https://www.overleaf.com/11956684mvynxdzcyppq
+
 1.  	Title of your project, and group information (group # and name, group member names)
 
 2.  	Abstract
