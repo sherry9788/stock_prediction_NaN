@@ -9,14 +9,49 @@ access_secret = 'w98rJiftZBPcaRbmZx7YKElnd8R2MjMKvgN8MqktXtfWX'
 
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
-api = tweepy.API(auth)
-results = api.search(q='iphone x',lang='en', count=100)
+api = tweepy.API(auth, parser=tweepy.parsers.JSONParser())
+results = api.search(q="iphone x", count=100)
 
-text = []
-for r in results:
-    print r.text
-    text.append(r.text)
-data = {}
-data['text'] = text
+# for i in range(100):
+#     print results["statuses"][i]
+
+# text = []
+# ts = []
+# location = []
+# favorites = []
+# retweets = []
+#
+# for r in results:
+#     print r.text
+#     print r.created_at
+#     print r.coordinates
+#     print r.favorite
+#     print r.retweeted
+#     break
+#     text.append(r.text)
+    # ts.append(r.created_at)
+    # location.append(r.coordinates)
+    # favorites.append(r.favorite)
+    # retweets.append(r.retweeted)
+
+# data = {}
+# data['text'] = text
+# data['time'] = ts
+# data['location'] = location
+# data['favorites'] = favorites
+# data['retweets'] = retweets
+#
+# with open('sample_tweets.json', 'w') as fp:
+#     json.dump(data, fp, indent=4)
+#
+# with open('sample_tweets.json', 'r') as fp:
+#     test = json.load(fp)
+
+#
 with open('sample_tweets.json', 'w') as fp:
-    json.dump(data, fp, indent=4)
+    json.dump(results["statuses"], fp, indent=4)
+
+with open('sample_tweets.json', 'r') as fp:
+    test = json.load(fp)
+
+print test
