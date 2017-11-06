@@ -9,6 +9,7 @@ access_secret = 'w98rJiftZBPcaRbmZx7YKElnd8R2MjMKvgN8MqktXtfWX'
 
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
+# Crawl metatweet instead of texts
 api = tweepy.API(auth, parser=tweepy.parsers.JSONParser())
 results = api.search(q="iphone x", count=100)
 
@@ -47,7 +48,7 @@ results = api.search(q="iphone x", count=100)
 # with open('sample_tweets.json', 'r') as fp:
 #     test = json.load(fp)
 
-#
+# Stores meta tweets into json
 with open('sample_tweets.json', 'w') as fp:
     json.dump(results["statuses"], fp, indent=4)
 
