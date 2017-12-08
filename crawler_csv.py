@@ -13,7 +13,7 @@ access_secret = 'w98rJiftZBPcaRbmZx7YKElnd8R2MjMKvgN8MqktXtfWX'
 auth = OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_secret)
 api = tweepy.API(auth)
-results = api.search(q='iphone (8|x)', count=15, lang='en', until=end_date)
+results = api.search(q='iphone x', count=100, lang='en', until=end_date)
 
 mydata = []
 for r in results:
