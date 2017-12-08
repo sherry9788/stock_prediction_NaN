@@ -2,6 +2,8 @@
 ### CS 145
 
 Midterm report shall be found here: https://www.overleaf.com/11956684mvynxdzcyppq
+
+
 Midterm report feedback from Justin Wood: "The approach looks good. I like that you are using different classifiers. Suggestions: Specify how many tweets are manually labelled. Ideally the more the better but of course we must be practical. The specific aim is not specified directly. Are you targeting specific companies, or are you trying to find a major mover in the market? If it’s the latter then how are you going to do that? I think some preliminary results may help focus the problem better. Overall the report is very general and it would help to get a more focused view on how you are trying to predict stock prices. Please make the run.sh a run.bat and compatible with Python 2.7.13 -- Anaconda 4.3.0 (64-bit). Also make the run.bat install all required libraries so that running run.bat will install necessary files and then run the program without the user needing to do anything."
 
 
