@@ -21,7 +21,7 @@ from itertools import cycle
 
 #df = pd.concat((pd.read_csv(f, header = None) for f in all_files), axis=0)
 
-df = pd.read_csv("vectors/new_vectors_with_labels.csv")
+df = pd.read_csv("vectors/new_vectors_with_labels.csv", header = None)
 
 X = df.iloc[:, :299]
 y = df.iloc[:, 300]
@@ -108,10 +108,9 @@ fig.savefig('roc_logreg.png')
 #
 
 # new
-i = 0
 for i in range(8):
-    X = df.iloc[i*100:(i+1)*100-1, :299]
-    y = df.iloc[i*100:(i+1)*100-1, 300]
+    X = df.iloc[i*100:(i+1)*100, :299]
+    y = df.iloc[i*100:(i+1)*100, 300]
     pred = clf.predict(X)
     pred = lb.inverse_transform(pred)
     np.savetxt('result_log/result'+str(i)+'.csv', pred, fmt='%10.5f', delimiter=',') 
@@ -122,4 +121,6 @@ y = df.iloc[i*100:, 300]
 pred = clf.predict(X)
 pred = lb.inverse_transform(pred)
 np.savetxt('result_log/result'+str(i)+'.csv', pred, fmt='%10.5f', delimiter=',') 
+
+
 
