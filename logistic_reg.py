@@ -1,9 +1,11 @@
 import numpy as np
 import pandas as pd
+import glob
 from sklearn.linear_model import LogisticRegression
 from sklearn.cross_validation import train_test_split
 
-df = pd.read_csv('11.29_vectors.csv', header=0)
+all_files = glob.glob("vectors/*.csv")
+df = pd.concat((pd.read_csv(f, header = None) for f in all_files), axis=0)
 
 X = df.iloc[:, :299]
 y = df.iloc[:, 300]
