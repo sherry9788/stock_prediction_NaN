@@ -10,20 +10,21 @@ import matplotlib.pyplot as plt
 from scipy import interp
 from itertools import cycle
 
-# files in /vectors
-#all_files = glob.glob("vectors/*.csv")
-#df = pd.DataFrame()
-#list_ = []
-#for file_ in all_files:
-#    frame = pd.read_csv(file_,index_col=None, header=None)
-#    list_.append(frame)
-#df = pd.concat(list_, axis = 0)
+# files in /new_vectors
+################# training data ########################
+all_files = glob.glob("new_vectors/training/*.csv")
+df = pd.DataFrame()
+list_ = []
+for file_ in all_files:
+    frame = pd.read_csv(file_,index_col=None, header=None)
+    list_.append(frame)
+df = pd.concat(list_, axis = 0)
 
 #df = pd.concat((pd.read_csv(f, header = None) for f in all_files), axis=0)
 
-df = pd.read_csv("vectors/new_vectors_with_labels.csv", header = None)
+#df = pd.read_csv("vectors/new_vectors_with_labels.csv", header = None)
 
-X = df.iloc[:, :299]
+X = df.iloc[:, :300]
 y = df.iloc[:, 300]
 
 # Binarize the output
@@ -97,30 +98,53 @@ plt.legend(loc="lower right")
 plt.show()
 fig.savefig('roc_logreg.png')
 
-#i = 0
-#for vec in list_:
-#    X = vec.iloc[:, :299]
-#    y = vec.iloc[:, 300]
+
+
+############## predicted labels (old/less accurate vectors) ###########################
+## new
+#for i in range(8):
+#    X = df.iloc[i*100:(i+1)*100, :300]
+#    y = df.iloc[i*100:(i+1)*100, 300]
 #    pred = clf.predict(X)
 #    pred = lb.inverse_transform(pred)
 #    np.savetxt('result_log/result'+str(i)+'.csv', pred, fmt='%10.5f', delimiter=',') 
-#    i += 1 
-#
+#    
+#i = 8
+#X = df.iloc[i*100:, :299]
+#y = df.iloc[i*100:, 300]
+#pred = clf.predict(X)
+#pred = lb.inverse_transform(pred)
+#np.savetxt('result_log/result'+str(i)+'.csv', pred, fmt='%10.5f', delimiter=',') 
 
-# new
-for i in range(8):
-    X = df.iloc[i*100:(i+1)*100, :299]
-    y = df.iloc[i*100:(i+1)*100, 300]
+
+############## predicted labels (new vectors) ###########################
+i = 0
+for vec in list_:
+    X = vec.iloc[:, :300]
     pred = clf.predict(X)
     pred = lb.inverse_transform(pred)
+    while(pred.size < 100):
+        pred = np.append(pred, 2.0)
     np.savetxt('result_log/result'+str(i)+'.csv', pred, fmt='%10.5f', delimiter=',') 
-    
-i = 8
-X = df.iloc[i*100:, :299]
-y = df.iloc[i*100:, 300]
-pred = clf.predict(X)
-pred = lb.inverse_transform(pred)
-np.savetxt('result_log/result'+str(i)+'.csv', pred, fmt='%10.5f', delimiter=',') 
+    i += 1 
 
+################# predicting data ########################
+all_files_pred = glob.glob("new_vectors/predicting/*.csv")
+df_pred = pd.DataFrame()
+list_pred = []
+for file_ in all_files_pred:
+    frame = pd.read_csv(file_,index_col=None, header=None)
+    list_pred.append(frame)
+df_pred = pd.concat(list_pred, axis = 0)
 
+############# predicted labels (last 3 days) ###################################
+i = 0
+for vec in list_pred:
+    X = vec.iloc[:, :300]
+    pred = clf.predict(X)
+    pred = lb.inverse_transform(pred)
+    while(pred.size < 100):
+        pred = np.append(pred, 2.0)
+    np.savetxt('result_log_pred/result'+str(i)+'.csv', pred, fmt='%10.5f', delimiter=',') 
+    i += 1 
 
