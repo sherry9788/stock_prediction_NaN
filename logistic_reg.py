@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import glob
-from sklearn.metrics import roc_curve, auc
+from sklearn.metrics import roc_curve, auc, classification_report
 from sklearn import preprocessing 
 from sklearn.linear_model import LogisticRegression
 from sklearn.cross_validation import train_test_split
@@ -39,6 +39,9 @@ clf.fit(X_train,y_train)
 res = clf.predict(X_test)
 print ('score Scikit learn: ', clf.score(X_test, y_test))
 y_score = clf.predict_proba(X_test)
+
+target_names = ['negative', 'neutral', 'positive']
+print(classification_report(y_test, res, target_names=target_names))
 
 # Compute ROC curve and ROC area for each class
 fpr = dict()
