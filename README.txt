@@ -66,4 +66,14 @@ Please restructure the folder format in the following structure in order to prop
    - 1.txt
    - 2.txt
    - 3.txt
+ - new_vectors/ (for random_forest and logistic_reg)
+   - training/
+      - 0.txt
+      - 1.txt
+      ...
+      - 8.txt
+   - training/
+      - 0.txt
+      - 1.txt
+      - 2.txt
 
