@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# preprocess and get word vectors
+python3 preprocess.py
+
 # logistic regression
 python3 logistic_reg.py
 
