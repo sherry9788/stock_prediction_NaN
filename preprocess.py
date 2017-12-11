@@ -38,7 +38,6 @@ def preprocess(raw_text):
 
 
 filenames = ['11.29.txt','11.30.txt','12.1.txt','12.2.txt','12.3.txt','12.4.txt','12.5.txt','12.6.txt','12.7.txt','12.8.txt','12.9.txt','12.10.txt']
-length=[100,100,100,100,100,100,100,99,79,100,86,100]
 
 
 total_vectors=[]
