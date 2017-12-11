@@ -13,3 +13,5 @@ python3 random_forest.py
 python3 glove_cnn.py -o train
 python3 glove_cnn.py -o predict
 
+# predict
+python3 predict.py
