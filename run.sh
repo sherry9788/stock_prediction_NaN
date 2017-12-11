@@ -14,4 +14,4 @@ python3 glove_cnn.py -o train
 python3 glove_cnn.py -o predict
 
 # predict
-python3 predict.py
+python2 predict.py
