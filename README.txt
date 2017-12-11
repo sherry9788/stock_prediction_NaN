@@ -11,8 +11,18 @@ The Submission zip is structured as following:
    - glove_cnn.py (please use python 3 to run this file)
    - logistic_reg.py (python 3)
    - random_forest.py (python 3)
+   - preprocess.py (python 3)
  - data/
    - cnn.h5
+   - 11.29.txt
+   - 11.30.txt
+   - ...
+   - 12.10.txt
+   - original data/
+     - 2017-11-29.csv
+     - 2017-11-30.csv
+     - ...
+     - 2017-12-10.csv
    - training/
      - negative/
        - 1
@@ -49,6 +59,11 @@ Please restructure the folder format in the following structure in order to prop
  - report.pdf
  - run.sh
  - glove_cnn.py
+ - preprocess.py (will produce 0.csv, 1.csv, ... , 11.csv)
+ - 11.29.txt
+ - 11.30.txt
+ - ...
+ - 12.10.txt
  - cnn.h5         # move cnn.h5 to just under the main folder
  - embedding/     # rename the downloaded glove.6B folder (unzipped from glove.6B.zip) to embedding
    - glove.6B.50d.txt
