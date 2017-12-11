@@ -91,7 +91,7 @@ Please restructure the folder format in the following structure in order to prop
       - 0.txt
       - 1.txt
       - 2.txt
-   - predict.py     # must be in the same directory AAPL.csv, result_log, result_log_pred, result_rand, result_rand_pred, result_cnn, result_cnn_pred
+ - predict.py     # must be in the same directory AAPL.csv, result_log, result_log_pred, result_rand, result_rand_pred, result_cnn, result_cnn_pred
  - AAPL.csv
  - result_log/
    - result0.csv
